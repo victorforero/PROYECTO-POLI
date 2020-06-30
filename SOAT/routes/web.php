@@ -11,6 +11,19 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+use Illuminate\Support\Facades\Auth;
+
+Auth::routes();
+Route::get('/','HomeController@index')->name('home');
+
+Route::resource('Vehiculo','VehiculoController');
+
+Route::resource('Rol', 'RolController');
+
+Route::resource('Soat','SoatController');
+
+Route::resource('Tipo','TipoController');
+
+Route::get('/usuarios','UserController@index');
+
+
