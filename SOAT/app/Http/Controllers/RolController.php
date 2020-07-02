@@ -10,7 +10,8 @@ class RolController extends Controller
 {
     public function index()
     {
-        $rols = Rol::all();
+        $rols = Rol::where('estado',0)
+        ->get();
         //dd($users);
         return view('Rol.index',['rols' => $rols]);
     }
@@ -45,4 +46,18 @@ class RolController extends Controller
         return redirect('/Rol');
     }
 
+    public function show($id)
+    {
+        $rol = Rol::findOrFail($id);
+        return view('Rol.destroy',['rol' => $rol]);
+    }
+
+    public function destroy($id)
+    {
+        $rol = Rol::findOrFail($id);
+        $rol->estado = 1;
+        $rol->update();
+
+        return redirect('/Rol');
+    }
 }

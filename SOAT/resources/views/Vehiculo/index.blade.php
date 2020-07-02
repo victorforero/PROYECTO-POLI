@@ -21,7 +21,7 @@
             <td>{{$vehiculo->Matricula}}</td>
             <td>{{$vehiculo->Conductor}}</td>
             <td><a href="{{route('Vehiculo.edit', $vehiculo->id)}}"><button type="button" class="btn btn-warning">Editar</button></a>
-            <button type="button" class="btn btn-danger">Eliminar</button></td>
+                <a href="{{route('Vehiculo.show', $vehiculo->id)}}"><button type="button" class="btn btn-danger">Eliminar</button></a></td>
         </tr>
     @endforeach
     </tbody>

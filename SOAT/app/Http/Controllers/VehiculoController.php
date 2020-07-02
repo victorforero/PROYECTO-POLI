@@ -14,7 +14,8 @@ class VehiculoController extends Controller
 {
     public function index ()
     {
-        $vehiculos = Vehiculo::all();
+        $vehiculos = Vehiculo::where('estado',0)
+        ->get();
         //dd($users);
         return view('Vehiculo.index',['vehiculos' => $vehiculos]);
     }
@@ -57,6 +58,21 @@ class VehiculoController extends Controller
 
         $vehiculo->update();
 
+
+        return redirect('/Vehiculo');
+    }
+
+    public function show($id)
+    {
+        $vehiculo = Vehiculo::findOrFail($id);
+        return view('Vehiculo.destroy',['vehiculo' => $vehiculo]);
+    }
+
+    public function destroy($id)
+    {
+        $vehiculo = Vehiculo::findOrFail($id);
+        $vehiculo->estado = 1;
+        $vehiculo->update();
 
         return redirect('/Vehiculo');
     }

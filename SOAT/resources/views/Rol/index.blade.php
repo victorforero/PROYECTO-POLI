@@ -16,7 +16,7 @@
             <th scope="row">{{$rol->id}}</th>
             <td>{{$rol->Descripcion}}</td>
             <td> <a href="{{route('Rol.edit', $rol->id)}}"><button type="button" class="btn btn-warning">Editar</button></a>
-            <button type="button" class="btn btn-danger">Eliminar</button></td>
+                 <a href="{{route('Rol.show', $rol->id)}}"><button type="button" class="btn btn-danger">Eliminar</button></a> </td>
         </tr>
     @endforeach
     </tbody>

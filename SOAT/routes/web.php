@@ -24,6 +24,6 @@ Route::resource('Soat','SoatController');
 
 Route::resource('Tipo','TipoController');
 
-Route::get('/usuarios','UserController@index');
+Route::resource('User', 'UserController');
 
 

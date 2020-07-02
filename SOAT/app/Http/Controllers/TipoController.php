@@ -11,7 +11,8 @@ class TipoController extends Controller
 {
     public function index ()
     {
-        $tipos = Tipo::all();
+        $tipos = Tipo::where('estado',0)
+        ->get();
         //dd($users);
         return view('Tipo.index',['tipos' => $tipos]);
     }
@@ -45,6 +46,21 @@ class TipoController extends Controller
         $tipo->Descripcion = $request->get('descripcion');
 
         $tipo->update();
+        return redirect('/Tipo');
+    }
+
+    public function show($id)
+    {
+        $tipo = Tipo::findOrFail($id);
+        return view('Tipo.destroy',['tipo' => $tipo]);
+    }
+
+    public function destroy($id)
+    {
+        $tipo = Tipo::findOrFail($id);
+        $tipo->estado = 1;
+        $tipo->update();
+
         return redirect('/Tipo');
     }
 }
