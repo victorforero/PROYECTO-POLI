@@ -22,8 +22,10 @@ class VehiculoController extends Controller
 
     public function create()
     {
-        $users = User::all();
-        $Tipos = Tipo::all();
+        $users = User::where('estado',0)
+        ->get();
+        $Tipos = Tipo::where('estado',0)
+        ->get();
         return view('Vehiculo.create',['users' => $users, 'Tipos' =>$Tipos]);
     }
 

@@ -9,7 +9,7 @@
             <th scope="col">ID</th>
             <th scope="col">Numero</th>
             <th scope="col">Fecha de compra</th>
-            <th scope="col">Fechad de expiracion</th>
+            <th scope="col">Fecha de expiracion</th>
             <th scope="col">Vehiculo</th>
         </tr>
     </thead>
@@ -21,8 +21,6 @@
             <td>{{$soat->Fecha_compra}}</td>
             <td>{{$soat->Fecha_expiracion}}</td>
             <td>{{$soat->Vehiculo}}</td>
-            <td><button type="button" class="btn btn-warning">Editar</button></td>
-            <td><button type="button" class="btn btn-danger">Eliminar</button></td>
         </tr>
     @endforeach
     </tbody>
